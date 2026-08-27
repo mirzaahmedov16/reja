@@ -2,6 +2,17 @@ console.log("Web serverni boshlash");
 const express = require('express');
 const app = express();
 const http = require("http");
+const fs = require("fs");
+const { log } = require('console');
+
+let user;
+fs.readFile("./database/user.json", "utf8", (err, data) =>{
+    if(err) {
+        console.log("ERROR:", err);
+    } else{
+        user = JSON.parse(data);
+    }
+})
 
 // 1 Kirish code
 
@@ -28,6 +39,10 @@ app.get("/buy", function (req, res) {
 app.post('/create-item', (req, res) => {
     console.log(req.body);
     res.json( {test: "sucsess"});
+});
+
+app.get('/author', function(req, res) {
+    res.render("author", {user: user});
 });
 
 app.get('/', function(req, res) {
