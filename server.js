@@ -30,7 +30,6 @@ app.set("view engine", "ejs");
 /*
 app.get("/hello", function (req, res) {
     res.send(`<h1>Hello World!</h1>>`);
-});
 
 app.get("/buy", function (req, res) {
     res.send(`<h1>Haridingiz muvaffaqiyatli amalga oshirildi!</h1>>`);
