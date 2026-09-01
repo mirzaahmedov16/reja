@@ -105,7 +105,7 @@
 // }
 // console.log(countnumber(2, [8,6,5,4,2,6,8,5,2,4,8,6,5,4,2,8,6,5,2]));
 
-
+// B Task
 function countDigits(string) {
     let count = 0;
 
