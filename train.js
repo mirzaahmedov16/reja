@@ -79,15 +79,51 @@
 
 // Task A
 
-function countletter(letter, word) {
+// function countletter(letter, word) {
+//     let count = 0;
+
+//     for (let i = 0; i < word.length; i++) {
+//         if(word[i] === letter){
+//             count++;
+//         }
+//      }
+//         return count;
+// }
+
+// console.log(countletter("a", 'mirzaahmad'));
+
+
+// function countnumber(number, numbers) {
+//     let count = 0;
+
+//     for (let i = 0; i < numbers.length; i++) {
+//         if(numbers[i] === number){
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+// console.log(countnumber(2, [8,6,5,4,2,6,8,5,2,4,8,6,5,4,2,8,6,5,2]));
+
+
+function countDigits(string) {
     let count = 0;
 
-    for (let i = 0; i < word.length; i++) {
-        if(word[i] === letter){
+    for (let i = 0; i < string.length; i++) {
+        if( string[i] === "0" ||
+            string[i] === "1" ||
+            string[i] === "2" ||
+            string[i] === "3" ||
+            string[i] === "4" ||
+            string[i] === "5" ||
+            string[i] === "6" ||
+            string[i] === "7" ||
+            string[i] === "8"||
+            string[i] === "9" 
+        ){
             count++;
         }
-     }
-        return count;
+    }
+    return count;
 }
-
-console.log(countletter("a", 'mirzaahmad'));
+console.log(countDigits("uoy3hgtb34khtb54lk4j3bntkh54tb2432"));
