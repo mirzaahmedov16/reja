@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const fs = require("fs");
 const { log } = require('console');
+const mongodb = require("mongodb");
 
 //authorga tegishli qism
 let user;
@@ -48,6 +49,17 @@ app.post('/create-item', (req, res) => {
     })
 });
 
+
+app.post("/delete-item", (req, res) => {
+   const id = req.body.id;
+
+    db.collection("plans").deleteOne(
+        {_id: new mongodb.ObjectId(id)},
+    function(err, data) {
+        res.json({ state: "success" });
+    }
+    )
+ });
 app.get('/author', function(req, res) {
     res.render("author", {user: user});
 });

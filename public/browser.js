@@ -33,7 +33,28 @@ axios.post("/create-item", {reja: createField.value})
     createField.value ="";
     createField.focus();
 })
-.catch((err) => {});
-
+.catch((err) => {
+    console.log("Iltimis qaytadan harakat qiling!");
+});
 });
 
+document.addEventListener("click", function(e) {
+    console.log("CLICK:", e.target);
+    // delete oper
+    if(e.target.classList.contains("delete-me")) {
+       if(confirm("Aniq ochirmoqchimisiz?"))
+
+       axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
+       .then((response) => {
+        console.log(response.data);
+        e.target.parentElement.parentElement.remove();
+       })
+       .catch((err) => {
+        console.log("Iltimis qaytadan harakat qiling!");
+       });
+    }
+
+    if(e.target.classList.contains("edit-me")) {
+        alert("siz edit tugmasini bosdingiz");
+    }
+})
