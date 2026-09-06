@@ -106,24 +106,43 @@
 // console.log(countnumber(2, [8,6,5,4,2,6,8,5,2,4,8,6,5,4,2,8,6,5,2]));
 
 // B Task
-function countDigits(string) {
-    let count = 0;
+// function countDigits(string) {
+//     let count = 0;
 
-    for (let i = 0; i < string.length; i++) {
-        if( string[i] === "0" ||
-            string[i] === "1" ||
-            string[i] === "2" ||
-            string[i] === "3" ||
-            string[i] === "4" ||
-            string[i] === "5" ||
-            string[i] === "6" ||
-            string[i] === "7" ||
-            string[i] === "8"||
-            string[i] === "9" 
-        ){
-            count++;
+//     for (let i = 0; i < string.length; i++) {
+//         if( string[i] === "0" ||
+//             string[i] === "1" ||
+//             string[i] === "2" ||
+//             string[i] === "3" ||
+//             string[i] === "4" ||
+//             string[i] === "5" ||
+//             string[i] === "6" ||
+//             string[i] === "7" ||
+//             string[i] === "8"||
+//             string[i] === "9" 
+//         ){
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+// console.log(countDigits("uoy3hgtb34khtb54lk4j3bntkh54tb2432"));
+
+
+// C task
+
+function chekContent(a, b) {
+    if (a.length !== b.length) {
+        return false;
+    }
+
+    for (let i = 0; i < a.length; i++) {
+        if (!b.includes(a[i])) {
+            return false;
         }
     }
-    return count;
+
+    return true;
 }
-console.log(countDigits("uoy3hgtb34khtb54lk4j3bntkh54tb2432"));
+
+console.log(chekContent("boshlanishihalibuu", "halibuboshlanishi"));;
