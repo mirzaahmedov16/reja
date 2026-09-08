@@ -131,18 +131,97 @@
 
 // C task
 
-function chekContent(a, b) {
-    if (a.length !== b.length) {
-        return false;
+// function chekContent(a, b) {
+//     if (a.length !== b.length) {
+//         return false;
+//     }
+
+//     for (let i = 0; i < a.length; i++) {
+//         if (!b.includes(a[i])) {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// }
+
+// console.log(chekContent("boshlanishihalibuu", "halibuboshlanishi"));;
+
+
+
+// D task
+const moment = require("moment");
+
+class Shop {
+
+    non;
+    lagmon;
+    cola;
+
+    constructor(non, lagmon, cola) {
+        this.non = non;
+        this.lagmon = lagmon;
+        this.cola = cola;
     }
 
-    for (let i = 0; i < a.length; i++) {
-        if (!b.includes(a[i])) {
-            return false;
+    qoldiq() {
+        let vaqt = moment().format("HH:mm");
+
+        console.log(
+            `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
+        );
+    }
+
+    sotish(mahsulot, miqdor) {
+        let vaqt = moment().format("HH:mm");
+
+        if (mahsulot == "non") {
+            this.non -= miqdor;
         }
+
+        if (mahsulot == "lagmon") {
+            this.lagmon -= miqdor;
+        }
+
+        if (mahsulot == "cola") {
+            this.cola -= miqdor;
+        }
+
+        console.log(
+            `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
+        );
     }
 
-    return true;
+    qabul(mahsulot, miqdor) {
+        let vaqt = moment().format("HH:mm");
+
+        if (mahsulot == "non") {
+            this.non += miqdor;
+        }
+
+        if (mahsulot == "lagmon") {
+            this.lagmon += miqdor;
+        }
+
+        if (mahsulot == "cola") {
+            this.cola += miqdor;
+        }
+
+        console.log(
+            `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
+        );
+    }
 }
 
-console.log(chekContent("boshlanishihalibuu", "halibuboshlanishi"));;
+
+const shop = new Shop (4, 5, 2);
+
+shop.qoldiq();
+
+shop.sotish("non", 3);
+
+shop.qabul("cola", 4 );
+
+shop.qoldiq()
+
+
