@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const fs = require("fs");
 const { log } = require('console');
-const mongodb = require("mongodb");
+
 
 //authorga tegishli qism
 let user;
@@ -11,13 +11,13 @@ fs.readFile("./database/user.json", "utf8", (err, data) =>{
     if(err) {
         console.log("ERROR:", err);
     } else{
-        user = JSON.parse(data);
+        user = JSON.parse(data); // json fileni objectga aylantiradi
     }
 })
 
 // Mongodb chaqrish
 const db = require("./server").db();
-
+const mongodb = require("mongodb");
 
 // 1 Kirish code
 
@@ -51,15 +51,62 @@ app.post('/create-item', (req, res) => {
 
 
 app.post("/delete-item", (req, res) => {
-   const id = req.body.id;
+    console.log("DELETE ROUTE ISHLADI");
+
+    const id = req.body.id;
+
+    console.log("KELGAN ID:", id);
 
     db.collection("plans").deleteOne(
-        {_id: new mongodb.ObjectId(id)},
-    function(err, data) {
-        res.json({ state: "success" });
+        { _id: new mongodb.ObjectId(id) },
+        function(err, data) {
+
+            if (err) {
+                console.log("DELETE ERROR:", err);
+                return res.json({ state: "error" });
+            }
+
+            console.log("DELETE NATIJA:", data);
+
+            res.json({ state: "success" });
+        }
+    );
+});
+
+app.post("/edit-item", (req, res) => {
+
+    const data = req.body;
+
+    console.log(data);
+
+    const id = data.id;
+
+    db.collection("plans").findOneAndUpdate(
+        { _id: new mongodb.ObjectId(id) },
+        { $set: { reja: data.newInput } },
+
+        function (err, data) {
+
+            if (err) {
+                console.log(err);
+                return res.json({ state: "error" });
+            }
+
+            res.json({ state: "success" });
+        }
+    );
+});
+
+
+app.post("/delete-all", (req, res) => {
+    if(req.body.delete_all){
+        db.collection("plans").deleteMany( function (){
+            res.json({state: "hamma rejalar ochirildi"});
+        });
     }
-    )
- });
+});
+
+
 app.get('/author', function(req, res) {
     res.render("author", {user: user});
 });

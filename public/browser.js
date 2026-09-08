@@ -1,3 +1,5 @@
+
+
 console.log("Fronted js ishga tushdi")
 
 function itemTemplate(item) {
@@ -40,21 +42,64 @@ axios.post("/create-item", {reja: createField.value})
 
 document.addEventListener("click", function(e) {
     console.log("CLICK:", e.target);
+
+
     // delete oper
-    if(e.target.classList.contains("delete-me")) {
-       if(confirm("Aniq ochirmoqchimisiz?"))
+if (e.target.classList.contains("delete-me")) {
 
-       axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
-       .then((response) => {
-        console.log(response.data);
-        e.target.parentElement.parentElement.remove();
-       })
-       .catch((err) => {
-        console.log("Iltimis qaytadan harakat qiling!");
-       });
+    console.log("DELETE BUTTON BOSILDI");
+
+    if (confirm("Aniq ochirmoqchimisiz?")) {
+
+        let id = e.target.getAttribute("data-id");
+
+        console.log("YUBORILAYOTGAN ID:", id);
+
+        axios.post("/delete-item", {
+            id: id
+        })
+        .then((response) => {
+
+            console.log("SERVER JAVOBI:", response.data);
+
+            e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+            console.log("DELETE ERROR:", err);
+        });
     }
-
+}
+    // edit oper
     if(e.target.classList.contains("edit-me")) {
-        alert("siz edit tugmasini bosdingiz");
+        let userInput = prompt(
+            "O'zgartirish kiriting",
+            e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+        );
+        if (userInput) {
+            axios.post("/edit-item", {
+            id: e.target.getAttribute("data-id"),
+                    new_input: userInput,
+            }).then((response) => {
+                console.log(response.data)
+                 e.target.parentElement.parentElement.querySelector(
+                    ".item-text"
+                ).innerHTML = userInput;
+        })
+        
+            .catch((err) => {
+                console.log("Iltimos qaytadan kiriting!")
+            });
+    
+        }
     }
-})
+});
+
+
+document.getElementById("clean-all").addEventListener("click", function (){
+    axios.post("/delete-all", {delete_all: true}).then((response) => {
+         alert(response.data.state);
+         document.location.reload();
+    });
+});
+
+
