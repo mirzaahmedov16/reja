@@ -75,22 +75,24 @@ app.post("/delete-item", (req, res) => {
 
 app.post("/edit-item", (req, res) => {
 
-    const data = req.body;
+    const id = req.body.id;
+    const newInput = req.body.newInput;
 
-    console.log(data);
+    console.log("ID:", id);
+    console.log("NEW INPUT:", newInput);
 
-    const id = data.id;
-
-    db.collection("plans").findOneAndUpdate(
+    db.collection("plans").updateOne(
         { _id: new mongodb.ObjectId(id) },
-        { $set: { reja: data.newInput } },
+        { $set: { reja: newInput } },
 
         function (err, data) {
 
             if (err) {
-                console.log(err);
+                console.log("EDIT ERROR:", err);
                 return res.json({ state: "error" });
             }
+
+            console.log("EDIT NATIJA:", data);
 
             res.json({ state: "success" });
         }
