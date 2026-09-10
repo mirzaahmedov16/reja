@@ -150,78 +150,95 @@
 
 
 // D task
-const moment = require("moment");
+// const moment = require("moment");
 
-class Shop {
+// class Shop {
 
-    non;
-    lagmon;
-    cola;
+//     non;
+//     lagmon;
+//     cola;
 
-    constructor(non, lagmon, cola) {
-        this.non = non;
-        this.lagmon = lagmon;
-        this.cola = cola;
+//     constructor(non, lagmon, cola) {
+//         this.non = non;
+//         this.lagmon = lagmon;
+//         this.cola = cola;
+//     }
+
+//     qoldiq() {
+//         let vaqt = moment().format("HH:mm");
+
+//         console.log(
+//             `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
+//         );
+//     }
+
+//     sotish(mahsulot, miqdor) {
+//         let vaqt = moment().format("HH:mm");
+
+//         if (mahsulot == "non") {
+//             this.non -= miqdor;
+//         }
+
+//         if (mahsulot == "lagmon") {
+//             this.lagmon -= miqdor;
+//         }
+
+//         if (mahsulot == "cola") {
+//             this.cola -= miqdor;
+//         }
+
+//         console.log(
+//             `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
+//         );
+//     }
+
+//     qabul(mahsulot, miqdor) {
+//         let vaqt = moment().format("HH:mm");
+
+//         if (mahsulot == "non") {
+//             this.non += miqdor;
+//         }
+
+//         if (mahsulot == "lagmon") {
+//             this.lagmon += miqdor;
+//         }
+
+//         if (mahsulot == "cola") {
+//             this.cola += miqdor;
+//         }
+
+//         console.log(
+//             `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
+//         );
+//     }
+// }
+
+
+// const shop = new Shop (4, 5, 2);
+
+// shop.qoldiq();
+
+// shop.sotish("non", 3);
+
+// shop.qabul("cola", 4 );
+
+// shop.qoldiq()
+
+
+// F task
+function findDoublers(string) {
+    for (let i = 0; i < string.length; i++) {
+
+        for (let j = i + 1; j < string.length; j++) {
+
+            if (string[i] === string[j]) {
+                return true;
+            }
+        }
     }
 
-    qoldiq() {
-        let vaqt = moment().format("HH:mm");
-
-        console.log(
-            `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
-        );
-    }
-
-    sotish(mahsulot, miqdor) {
-        let vaqt = moment().format("HH:mm");
-
-        if (mahsulot == "non") {
-            this.non -= miqdor;
-        }
-
-        if (mahsulot == "lagmon") {
-            this.lagmon -= miqdor;
-        }
-
-        if (mahsulot == "cola") {
-            this.cola -= miqdor;
-        }
-
-        console.log(
-            `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
-        );
-    }
-
-    qabul(mahsulot, miqdor) {
-        let vaqt = moment().format("HH:mm");
-
-        if (mahsulot == "non") {
-            this.non += miqdor;
-        }
-
-        if (mahsulot == "lagmon") {
-            this.lagmon += miqdor;
-        }
-
-        if (mahsulot == "cola") {
-            this.cola += miqdor;
-        }
-
-        console.log(
-            `Hozir ${vaqt} da ${this.non} ta non ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud!`
-        );
-    }
+    return false;
 }
 
-
-const shop = new Shop (4, 5, 2);
-
-shop.qoldiq();
-
-shop.sotish("non", 3);
-
-shop.qabul("cola", 4 );
-
-shop.qoldiq()
-
-
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("abc"));   // false
