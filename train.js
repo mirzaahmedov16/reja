@@ -1,4 +1,4 @@
-// //CALLBACK functions
+//CALLBACK functions
 // console.log("Jack Ma maslahatlari");
 // const list = [
 //     "yaxshi talaba bo'ling", // 0-20
@@ -11,7 +11,7 @@
 
 // function maslahatBering(a, callback) {
 //     if (typeof a !== "number") callback("insert a number", null);
-//      else if(a <= 20) callback(null, list[0]); 
+//      else if(a <= 20) callback(null, list[0]);
 //      else if(a > 20 && a <= 30) callback(null, list[1]);
 //     else if(a > 30 && a <= 40) callback(null, list[2]);
 //     else if(a > 40 && a <= 50) callback(null, list[3]);
@@ -32,10 +32,9 @@
 // });
 // console.log("passed here 1")
 
-
 // ASYNS functions
 // async function maslahatBering(a) {
-//    if (typeof a !== "number") throw new Error("insert a number");   
+//    if (typeof a !== "number") throw new Error("insert a number");
 // else if(a <= 20) return list[0];
 // else if(a > 20 && a <= 30 ) return list[1];
 // else if(a > 30 && a <= 40 ) return list[1];
@@ -61,7 +60,7 @@
 //                 });
 //                 console.log("passed here 1");
 
-// async/wait 
+// async/wait
 // async function run() {
 //     let javob = await maslahatBering(25);
 //     console.log(javob);
@@ -71,11 +70,6 @@
 //     console.log(javob);
 // }
 // run();
-
-
-
-
-
 
 // Task A
 
@@ -91,7 +85,6 @@
 // }
 
 // console.log(countletter("a", 'mirzaahmad'));
-
 
 // function countnumber(number, numbers) {
 //     let count = 0;
@@ -119,7 +112,7 @@
 //             string[i] === "6" ||
 //             string[i] === "7" ||
 //             string[i] === "8"||
-//             string[i] === "9" 
+//             string[i] === "9"
 //         ){
 //             count++;
 //         }
@@ -127,7 +120,6 @@
 //     return count;
 // }
 // console.log(countDigits("uoy3hgtb34khtb54lk4j3bntkh54tb2432"));
-
 
 // C task
 
@@ -146,8 +138,6 @@
 // }
 
 // console.log(chekContent("boshlanishihalibuu", "halibuboshlanishi"));;
-
-
 
 // D task
 // const moment = require("moment");
@@ -213,7 +203,6 @@
 //     }
 // }
 
-
 // const shop = new Shop (4, 5, 2);
 
 // shop.qoldiq();
@@ -224,21 +213,25 @@
 
 // shop.qoldiq()
 
-
 // F task
-function findDoublers(string) {
-    for (let i = 0; i < string.length; i++) {
+// function findDoublers(string) {
+//   for (let i = 0; i < string.length; i++) {
+//     for (let j = i + 1; j < string.length; j++) {
+//       if (string[i] === string[j]) {
+//         return true;
+//       }
+//     }
+//   }
 
-        for (let j = i + 1; j < string.length; j++) {
+//   return false;
+// }
 
-            if (string[i] === string[j]) {
-                return true;
-            }
-        }
-    }
+// console.log(findDoublers("hello"));
+// console.log(findDoublers("abc"));
 
-    return false;
+// E task
+function getReverse(str) {
+  return str.split("").reverse().join("");
 }
 
-console.log(findDoublers("hello")); // true
-console.log(findDoublers("abc"));   // false
+console.log(getReverse("TIM olleH "));
