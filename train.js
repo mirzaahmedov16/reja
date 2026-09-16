@@ -230,8 +230,26 @@
 // console.log(findDoublers("abc"));
 
 // E task
-function getReverse(str) {
-  return str.split("").reverse().join("");
+// function getReverse(str) {
+//   return str.split("").reverse().join("");
+// }
+
+// console.log(getReverse("TIM olleH "));
+
+// G task
+
+function getHighestIndex(arr) {
+  let highest = arr[0];
+  let highestIndex = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > highest) {
+      highest = arr[i];
+      highestIndex = i;
+    }
+  }
+
+  return highestIndex;
 }
 
-console.log(getReverse("TIM olleH "));
+console.log(getHighestIndex([5, 21, 12, 21, 8]));
