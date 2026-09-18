@@ -238,18 +238,40 @@
 
 // G task
 
-function getHighestIndex(arr) {
-  let highest = arr[0];
-  let highestIndex = 0;
+// function getHighestIndex(arr) {
+//   let highest = arr[0];
+//   let highestIndex = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > highest) {
-      highest = arr[i];
-      highestIndex = i;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > highest) {
+//       highest = arr[i];
+//       highestIndex = i;
+//     }
+//   }
+
+//   return highestIndex;
+// }
+
+// console.log(getHighestIndex([5, 21, 12, 21, 8]));
+
+// H-TASK
+
+// Shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin.
+//  MASALAN: getPositive([1, -4, 2]) return qiladi "12".
+
+// @MITASK
+
+// H task
+function getPositive(int) {
+  let result = "";
+
+  for (let i = 0; i < int.length; i++) {
+    if (int[i] > 0) {
+      result += int[i];
     }
   }
 
-  return highestIndex;
+  return result;
 }
 
-console.log(getHighestIndex([5, 21, 12, 21, 8]));
+console.log(getPositive([3, 45, -12]));
