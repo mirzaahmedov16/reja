@@ -254,24 +254,47 @@
 
 // console.log(getHighestIndex([5, 21, 12, 21, 8]));
 
-// H-TASK
-
-// Shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin.
-//  MASALAN: getPositive([1, -4, 2]) return qiladi "12".
-
-// @MITASK
-
 // H task
-function getPositive(int) {
-  let result = "";
+// function getPositive(int) {
+//   let result = "";
 
-  for (let i = 0; i < int.length; i++) {
-    if (int[i] > 0) {
-      result += int[i];
+//   for (let i = 0; i < int.length; i++) {
+//     if (int[i] > 0) {
+//       result += int[i];
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(getPositive([3, 45, -12]));
+
+// I task
+
+function majorityElement(arr) {
+  let counts = {};
+
+  // 1. Har bir raqamni sanaymiz
+  for (let i = 0; i < arr.length; i++) {
+    if (counts[arr[i]]) {
+      counts[arr[i]] += 1;
+    } else {
+      counts[arr[i]] = 1;
     }
   }
 
-  return result;
+  // 2. Eng ko‘p takrorlanganini topamiz
+  let max = 0;
+  let result;
+
+  for (let key in counts) {
+    if (counts[key] > max) {
+      max = counts[key];
+      result = key;
+    }
+  }
+
+  return Number(result);
 }
 
-console.log(getPositive([3, 45, -12]));
+console.log(majorityElement([1, 2, 3, 4, 5, 3, 4, 3, 4, 3]));
